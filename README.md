@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Pokemon Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple React app for browsing Pokemon data from PokeAPI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search by Pokemon name
+- Multi-select type filters
+- Details modal with sprite gallery, evolution chain, and locations
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + TypeScript + Vite
+- MUI (Material UI)
+- PokeAPI
 
-## Expanding the ESLint configuration
+## Run locally (dev)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run build
 ```
+
+## Run build locally (preview)
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project structure
+
+App files (without config files):
+
+- `README.md` - project documentation
+- `package.json` - scripts and dependencies
+- `package-lock.json` - exact dependency lockfile
+- `index.html` - Vite HTML entry
+- `public/favicon.svg` - browser tab icon
+- `public/icons.svg` - extra SVG icon sprite
+- `src/main.tsx` - React app bootstrap (mount to DOM)
+- `src/index.css` - global base styles
+- `src/App.tsx` - main page layout, filters, search, pagination, modal wiring
+- `src/api/pokemon.ts` - PokeAPI list/details fetching and mapping to app model
+- `src/constants/pokemon.ts` - shared constants (API base URL, page size)
+- `src/types/pokemon.ts` - app-level TypeScript types
+- `src/theme/colors.ts` - Pokemon type color palette
+- `src/components/PokemonGrid.tsx` - responsive grid for Pokemon cards
+- `src/components/PokemonCard.tsx` - single Pokemon card UI
+- `src/components/PokemonDetailsModal.tsx` - modal with sprite gallery, evolution chain, locations
+- `src/assets/poke-ball.png` - Pokeball icon used in header
+
+## GitHub Pages
+
+https://tyto0o.github.io/wave-assignment/
