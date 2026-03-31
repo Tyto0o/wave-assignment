@@ -47,8 +47,6 @@ export function PokemonDetailsModal({
       return;
     }
 
-    let cancelled = false;
-
     const load = async () => {
       setIsLoading(true);
 
@@ -88,10 +86,6 @@ export function PokemonDetailsModal({
     };
 
     void load();
-
-    return () => {
-      cancelled = true;
-    };
   }, [name, open]);
 
   return (
